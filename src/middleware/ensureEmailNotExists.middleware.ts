@@ -22,7 +22,7 @@ export const ensureEmailNotExistsMiddleware =async (request:Request, response: R
 	const queryResult = await userRepository.query(queryString)
 
 	if (queryResult.length > 0 && queryResult[0].email !== null) {
-		throw new AppError('Email already exists', 409);
+		return response.status(409).json({ error: 'Email already exists' });
 	}
 
 	return next()
