@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response, json } from "express";
 import { TUser, TUserRequest } from "../interfaces/user.interfaces";
 import { createUserService } from "../services/createUser.service";
 import { retrieveUserService } from "../services/retrieveUser.service";
@@ -21,7 +21,7 @@ export const retrieveUserController = async (request: Request, response: Respons
 
 export const deleteAllUserController =async (request: Request, response: Response): Promise<Response> => {
 	
-	await deleteAllUserService()
+	const result = await deleteAllUserService()
 
-	return response.status(204)
+	return response.status(204).json(result)
 }
