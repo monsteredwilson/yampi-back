@@ -6,4 +6,4 @@ export const userRouter: Router = Router()
 
 userRouter.post('', ensureEmailNotExistsMiddleware, createUserController)
 userRouter.get('/list', retrieveUserController)
-userRouter.delete('', deleteAllUserController)
+// userRouter.delete('', deleteAllUserController)
